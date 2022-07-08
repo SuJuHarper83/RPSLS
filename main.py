@@ -9,3 +9,15 @@
 # As a player, I want the game of RPSLS to be at minimum a “best of three” to decide a winner.  
 # As a player, I want the option of a single player (human vs AI) or a multiplayer (human vs human) game. 
 
+
+# Introduction
+# Rules of the game/options
+# Create players: 
+#   ai, human
+# Create attack phase while loop
+# Display winner best out of 3
+
+# Classes:
+#   Human player #input
+#   AI player #random
+#   Game #holds the choices
