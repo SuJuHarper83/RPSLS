@@ -11,13 +11,15 @@
 
 
 # Introduction
-# Rules of the game/options
+# Rules of the game
+# prestent user game mode options
 # Create players: 
 #   ai, human
 # Create attack phase while loop
 # Display winner best out of 3
 
 # Classes:
+#   Player will be our parent class
 #   Human player #input
 #   AI player #random
 #   Game #holds the choices

@@ -1,4 +1,12 @@
-class AI():
+from player import Player
+import random
 
-    def __init__(self, name):
-        self.name = name
+class AI(Player):
+
+    def __init__(self):
+        self.name = "rumba"
+        super().__init__()
+
+    def choose_gesture(self):
+        self.chosen_gesture = random.choice(self.gesture_list)
+        print(f'{self.name} has picked {self.chosen_gesture}')
