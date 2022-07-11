@@ -5,8 +5,8 @@ import time
 class Human(Player):
 
     def __init__(self):
-        self.name = input("What is your name? ")
         time.sleep(1)
+        self.name = input("What is your name? ")
         print(f"Welcome {self.name}!")
         time.sleep(1)
         super().__init__()

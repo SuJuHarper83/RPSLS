@@ -21,7 +21,7 @@
 # Classes:
 #   Player will be our parent class
 #   Human player #input
-#   AI player #random
+#   AI player #random11
 #   Game #holds the choices
 
 from game import Game
