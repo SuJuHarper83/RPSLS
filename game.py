@@ -13,7 +13,7 @@ class Game:
         self.intro()
         self.choose_mode()
         self.play_rounds()
-        self.declare_winner()
+        self.declare_winner(self)
 
     def intro(self):
         pass
@@ -28,68 +28,72 @@ class Game:
             self.player_two = Human()
     
     def play_rounds(self):
-        self.player_one.choose_gesture()
-        self.player_two.choose_gesture()
-        if self.player_one.chosen_gesture == self.player_two.chosen_gesture:
-            print(f"It's a tie!")
-        elif self.player_one == "Rock":
-            if self.player_two == "Paper":
-                print("Paper covers rock, you lose!")
-                self.player_two.wins += 1
-            elif self.player_two == "Scissors":
-                print("Rock crushes scissors, you win!")
-                self.player_one.wins +=1
-            elif self.player_two == "Lizard":
-                print("Rock crushes Lizard, you win!")
-                self.player_one.wins += 1
-            else:
-                print("Try again")
-        elif self.player_one == "Paper":
-            if self.player_two == "Rock":
-                print("Paper cobers rock, you win!")
-                self.player_one.wins += 1
-            elif self.player_two == "Scissors":
-                print("Scissors cut paper, you lose!")
-                self.player_two.wins +=1
-            elif self.player_two == "Lizard":
-                print("Lizard eats paper, you lose!")
-                self.player_two.wins += 1
-            else:
-                print("Try again")
-        elif self.player_one == "Lizard":
-            if self.player_two == "Rock":
-                print("Rock crushes lizard, you lose!")
-                self.player_two.wins += 1
-            elif self.player_two == "Scissors":
-                print("Scissors decapitate lizard, you lose!")
-                self.player_two.wins +=1
-            elif self.player_two == "Paper":
-                print("Lizard eats paper, you win!")
-                self.player_one.wins += 1
-            else:
-                print("Lizard poisons Spoke, you win!")
-                self.player_one.wins += 1
-        elif self.player_one == "Scissors":
-            if self.player_two == "Spock":
-                print("Spock smashes scissors, you lose!")
-                self.player_two.wins += 1
-            elif self.player_two == "Paper":
-                print("Scissors cut paper, you win!")
-                self.player_one.wins +=1
-            elif self.player_two == "Rock":
-                print("Rock smashes scissors, you lose!")
-                self.player_two.wins += 1
-            else:
-                print("Try again")
-        elif self.player_one == "Spock":
-            if self.player_two == "Scissors":
-                print("Spock smashes scissors, you win!")
-                self.player_one.wins += 1
-            elif self.player_two == "Lizard":
-                print("Lizard poisons Spock, you lose!")
-                self.player_two.wins +=1
-            else:
-                print("Try again")
+        while True:
+            self.player_one.choose_gesture()
+            self.player_two.choose_gesture()
+            if self.player_one.chosen_gesture == self.player_two.chosen_gesture:
+                print(f"It's a tie!")
+            elif self.player_one.chosen_gesture == "Rock":
+                if self.player_two.chosen_gesture == "Paper":
+                    print("Paper covers rock, Luna wins!")
+                    self.player_two.wins += 1
+                elif self.player_two.chosen_gesture == "Scissors":
+                    print("Rock crushes scissors, you win!")
+                    self.player_one.wins +=1
+                elif self.player_two.chosen_gesture == "Lizard":
+                    print("Rock crushes Lizard, you win!")
+                    self.player_one.wins += 1
+                else:
+                    print("Try again")
+            elif self.player_one.chosen_gesture == "Paper":
+                if self.player_two.chosen_gesture == "Rock":
+                    print("Paper cobers rock, you win!")
+                    self.player_one.wins += 1
+                elif self.player_two.chosen_gesture == "Scissors":
+                    print("Scissors cut paper, Luna wins!")
+                    self.player_two.wins +=1
+                elif self.player_two.chosen_gesture == "Lizard":
+                    print("Lizard eats paper, Luna wins!")
+                    self.player_two.wins += 1
+                else:
+                    print("Try again")
+            elif self.player_one.chosen_gesture == "Lizard":
+                if self.player_two.chosen_gesture == "Rock":
+                    print("Rock crushes lizard, Luna wins!")
+                    self.player_two.wins += 1
+                elif self.player_two.chosen_gesture == "Scissors":
+                    print("Scissors decapitate lizard, Luna wins!")
+                    self.player_two.wins +=1
+                elif self.player_two.chosen_gesture == "Paper":
+                    print("Lizard eats paper, you win!")
+                    self.player_one.wins += 1
+                else:
+                    print("Lizard poisons Spock, you win!")
+                    self.player_one.wins += 1
+            elif self.player_one.chosen_gesture == "Scissors":
+                if self.player_two.chosen_gesture == "Spock":
+                    print("Spock smashes scissors, Luna wins!")
+                    self.player_two.wins += 1
+                elif self.player_two.chosen_gesture == "Paper":
+                    print("Scissors cut paper, you win!")
+                    self.player_one.wins +=1
+                elif self.player_two.chosen_gesture == "Rock":
+                    print("Rock smashes scissors, Luna wins!")
+                    self.player_two.wins += 1
+                else:
+                    print("Try again")
+            elif self.player_one.chosen_gesture == "Spock":
+                if self.player_two.chosen_gesture == "Lizard":
+                    print("Spock smashes scissors, you win!")
+                    self.player_one.wins += 1
+                elif self.player_two.chosen_gesture == "Lizard":
+                    print("Lizard poisons Spock, Luna wins!")
+                    self.player_two.wins +=1
+                else:
+                    print("Try again")
 
     def declare_winner(self):
-        pass
+        if self.player_one.wins <= 3:
+            print(f"{self.player_one.name} wins!")
+        elif self.player_two.wins <= 3:
+            print(f"{self.player_two.name} wins!")
