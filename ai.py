@@ -4,7 +4,8 @@ import random
 class AI(Player):
 
     def __init__(self):
-        self.name = "rumba"
+        self.name = "Luna"
+        print("Luna has entered the game.")
         super().__init__()
 
     def choose_gesture(self):
