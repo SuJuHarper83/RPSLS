@@ -33,8 +33,10 @@ class Game:
     def play_rounds(self):
         while self.player_one.wins < 2 and self.player_two.wins < 2:
             self.player_one.choose_gesture()
-            time.sleep(1)
             self.player_two.choose_gesture()
+            print(f"{self.player_one.name} has chosen {self.player_one.chosen_gesture}")
+            time.sleep(1)
+            print(f"{self.player_two.name} has chosen {self.player_two.chosen_gesture}")
             time.sleep(1)
             if self.player_one.chosen_gesture == self.player_two.chosen_gesture:
                 print(f"It's a tie!")
