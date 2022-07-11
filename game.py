@@ -18,7 +18,7 @@ class Game:
 
     def intro(self):
         time.sleep(1)
-        print("Let's have a rock, paper, scissors game, a la Big Bang Theory!")
+        print("Let's have a rock, paper, scissors game, Big Bang Theory style!")
         time.sleep(1)
     
     def choose_mode(self):
@@ -34,7 +34,7 @@ class Game:
         while self.player_one.wins < 2 and self.player_two.wins < 2:
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
-            print(f"{self.player_one.name} has chosen {self.player_one.chosen_gesture}")
+            print(f"You've chosen {self.player_one.chosen_gesture}")
             time.sleep(1)
             print(f"{self.player_two.name} has chosen {self.player_two.chosen_gesture}")
             time.sleep(1)
@@ -120,7 +120,7 @@ class Game:
 
     def declare_winner(self):
         if self.player_one.wins == 2:
-            print(f"{self.player_one.name} wins 2 out of 3!")
+            print(f"You win 2 out of 3!")
             time.sleep(1)
         elif self.player_two.wins == 2:
             print(f"{self.player_two.name} wins 2 out of 3!")
