@@ -1,6 +1,7 @@
 from human import Human
 from ai import AI
 from player import Player
+import time
 
 class Game:
 
@@ -13,10 +14,11 @@ class Game:
         self.intro()
         self.choose_mode()
         self.play_rounds()
-        self.declare_winner(self)
+        self.declare_winner()
 
     def intro(self):
-        pass
+        print("Let's have a rock, paper, scissors game, a la Big Bang Theory!")
+        time.sleep(1)
     
     def choose_mode(self):
         user_choice = input("Press 1 for single player or 2 for multi-player: ")
@@ -28,7 +30,7 @@ class Game:
             self.player_two = Human()
     
     def play_rounds(self):
-        while True:
+        while self.player_one.wins < 2 and self.player_two.wins < 2:
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
             if self.player_one.chosen_gesture == self.player_two.chosen_gesture:
@@ -91,9 +93,13 @@ class Game:
                     self.player_two.wins +=1
                 else:
                     print("Try again")
+            if self.player_one.wins == 2:
+                print(f"{self.player_one.name} wins!")
+            elif self.player_two.wins == 2:
+                print(f"{self.player_two.name} wins!")
 
     def declare_winner(self):
-        if self.player_one.wins <= 3:
-            print(f"{self.player_one.name} wins!")
-        elif self.player_two.wins <= 3:
-            print(f"{self.player_two.name} wins!")
+        if self.player_one.wins == 2:
+            print(f"{self.player_one.name} is the winner!")
+        elif self.player_two.wins == 2:
+            print(f"{self.player_two.name} is the winner!")
