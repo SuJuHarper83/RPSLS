@@ -1,4 +1,4 @@
-from re import A
+
 from player import Player
 import time
 
@@ -25,4 +25,6 @@ class Human(Player):
         time.sleep(0.5)
         user_choice = int(input("Make your selection: "))
         self.chosen_gesture = self.gesture_list[user_choice]
+        time.sleep(1)
+        print(f"You've chosen {self.chosen_gesture}")
         time.sleep(1)
